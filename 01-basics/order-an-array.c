@@ -2,7 +2,8 @@
 #include <string.h>
 #define MAX_NUMS 50
 
-    
+// This function will take an array of integers told by the user and will return the same integers ordered
+   
 int main() {
     int thelist[MAX_NUMS];
     int actual_num;
@@ -25,6 +26,8 @@ int main() {
     }
 
     // Ordenem el Array [86, 90, 34, 12, 7, 34, 76]
+    // Fem un Bucle dins d'un altre bucle
+
     for (int i = 0; i < total_nums; i++) {
         for (int j = i + 1; j < total_nums; j++) {
             if (thelist[i] > thelist[j]) {
