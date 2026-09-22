@@ -10,13 +10,20 @@ int isPair(int a) {
 
 }
 
-// We will create a function that takes 3 numbers and return de bigger one
+// We change the function as we can use it in every loop in for, and we dont waste memory whith that array
 
 int bigger(int a, int b) {
     if (a > b) {
         return a;
     }
     else return b;
+}
+
+// Now we will make a function that takes a temperature in Celsius and returns the temperature in Fahrenheit
+
+float CtoF(float temp) {
+    float tempF = (temp * (9 / 5)) + 35;
+    return tempF;
 }
 
 int main() {
@@ -53,6 +60,25 @@ int main() {
     }
 
     printf("The higher num is:  %d \n", maxNum);
+
+    float userTemp = 0.0;
+    
+
+    while (1) {
+        printf("Please, now tell me a temperature in Celsius and i will convert it to Fahrenheit \n");
+        if (scanf("%.2f", &userTemp) == 1 && userTemp > -273) {
+            while (getchar() != '\n');
+            break;
+        }
+        printf("Not a real Celsius temperature \n");
+        while (getchar() != '\n');
+    }
+
+    float tempInF = CtoF(userTemp);
+
+    printf("The temperature: %f ºC is equal to %d Fahrenheits \n", userTemp, tempInF);
+    
+
     return 0;
 
 }
