@@ -1,6 +1,10 @@
 bin/
 build/
+.vscode/
 *.o
 *.out
 *.exe
 a.out
+# Ignorar qualsevol executable sense extensio
+order-an-array
+ordering_an_array
