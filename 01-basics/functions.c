@@ -22,7 +22,7 @@ int bigger(int a, int b) {
 // Now we will make a function that takes a temperature in Celsius and returns the temperature in Fahrenheit
 
 float CtoF(float temp) {
-    float tempF = (temp * (9 / 5)) + 35;
+    float tempF = temp * (9.0 / 5.0) + 32;
     return tempF;
 }
 
@@ -66,7 +66,7 @@ int main() {
 
     while (1) {
         printf("Please, now tell me a temperature in Celsius and i will convert it to Fahrenheit \n");
-        if (scanf("%.2f", &userTemp) == 1 && userTemp > -273) {
+        if (scanf("%f", &userTemp) == 1 && userTemp >= -273) {
             while (getchar() != '\n');
             break;
         }
@@ -76,8 +76,8 @@ int main() {
 
     float tempInF = CtoF(userTemp);
 
-    printf("The temperature: %f ºC is equal to %d Fahrenheits \n", userTemp, tempInF);
-    
+    printf("The temperature: %.2f ºC is equal to %.2f Fahrenheits \n", userTemp, tempInF);
+
 
     return 0;
 
