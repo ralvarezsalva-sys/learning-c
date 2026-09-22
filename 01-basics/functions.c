@@ -12,11 +12,11 @@ int isPair(int a) {
 
 // We will create a function that takes 3 numbers and return de bigger one
 
-int max_of_three(int a, int b, int c) {
-    int max = a;
-    if (b > a) max = b;
-    if (c > max) max = c;
-    return max; // As we already say that max is a, if the other options are not true, we keep this first value.
+int bigger(int a, int b) {
+    if (a > b) {
+        return a;
+    }
+    else return b;
 }
 
 int main() {
@@ -35,27 +35,24 @@ int main() {
     }
     else printf("The number is impair \n");
 
-    int userListNums[3];
-    for (int i = 0; i <= 2; i++) {
-        printf("Please, write the num number %d: \n", i + 1);
+    int maxNum = -99999;
+    for (int i = 0; i < 3; i++) {
+        int numU = 0;
         while (1) {
-            if (scanf("%d", &userListNums[i]) == 1) {
+            printf("Pls enter the num number %d \n", i + 1);
+            if (scanf("%d", &numU) == 1) {
                 while (getchar() != '\n');
                 break;
             }
-            printf("Not a real integer, please repeat it \n");
+            printf("Not a real integer, pls repeat it \n");
             while (getchar() != '\n');
 
         }
-
+        if (i == 0) maxNum = numU;
+        else maxNum = bigger(numU, maxNum);
     }
 
-    int num1 =  userListNums[0];
-    int num2 = userListNums[1];
-    int num3 = userListNums[2];
-
-    int max_num = max_of_three(num1, num2, num3);
-    printf("The max num is %d \n", max_num);
-    
+    printf("The higher num is:  %d \n", maxNum);
     return 0;
+
 }
