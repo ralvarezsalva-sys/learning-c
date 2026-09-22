@@ -1,2 +1,3 @@
-# learning-c
-This will be the repository where i will be documenting all my progress in learning C.
+# Learning C 💻
+
+Repository dedicated to documenting my progress, exercises, and fundamental concepts as I learn C programming during my Computer Engineering degree.
