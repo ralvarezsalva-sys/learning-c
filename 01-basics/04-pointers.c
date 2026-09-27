@@ -1,7 +1,9 @@
+#define MAX_NUMS 5
 #include <stdio.h>
 
 void increment(int *num);
 void swapValues(int *a, int *b);
+int getMax(int *arr, int size, int *maxResult);
 
 int main() {
     int x = 10;
@@ -18,6 +20,12 @@ int main() {
 
     swapValues(&x, &y);
     printf("X = %d \nY = %d \n", x, y);
+    
+    int array[MAX_NUMS] = {6, 2, 3, 8, 9};
+    int maxNum;
+
+    maxNum = getMax(&array, MAX_NUMS, &maxNum);
+    printf("The higher num of the array is %d \n", maxNum);
 
     return 0;
 }
@@ -32,4 +40,14 @@ void swapValues(int *a, int *b) {
     int temp = *a;
     *a = *b;
     *b = temp;
+}
+
+int getMax(int *arr, int size, int *maxResult) {
+    *maxResult = arr[0];
+    for (int i = 0; i < size; i++) {
+        if (arr[i] >= *maxResult) {
+            *maxResult = arr[i];
+        }
+    }
+    return *maxResult;
 }
