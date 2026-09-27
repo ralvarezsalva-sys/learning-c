@@ -5,6 +5,8 @@ void increment(int *num);
 void swapValues(int *a, int *b);
 int getMax(int *arr, int size, int *maxResult);
 void reverseArray(int *arr, int size);
+void getMinAndMax(int *arr, int size, int *minNum, int *maxNum);
+
 
 int main() {
     int x = 10;
@@ -35,7 +37,23 @@ int main() {
         printf("%d ", array[i]);
     }
     printf("\n");
+
+    int arrayTwo[MAX_NUMS] = {4, 3, 9, 22, 2};
+    
+    int minNumArrTwo;
+    int maxNumArrTwo;
+
+    getMinAndMax(arrayTwo, MAX_NUMS, &minNumArrTwo, &maxNumArrTwo);
+
+    printf("Highest number of the second array: %d \nLowest number of the array: %d\n", maxNumArrTwo, minNumArrTwo);
+
+
+
+
+
     return 0;
+
+
 }
 
 void increment(int *num) {
@@ -65,5 +83,19 @@ void reverseArray(int *arr, int size) {
         int temp = *(arr + i);
         *(arr + i) = *(arr + size - 1 - i);
         *(arr + size - 1 - i) = temp;
+    }
+}
+
+void getMinAndMax(int *arr, int size, int *minNum, int *maxNum) {
+    *minNum = arr[0];
+    *maxNum = arr[0];
+    for (int i = 0; i < size; i++) {
+        if (arr[i] >= *maxNum) {
+            *maxNum = arr[i];
+        }
+
+        if (arr[i] <= *minNum) {
+            *minNum = arr[i];
+        }
     }
 }
