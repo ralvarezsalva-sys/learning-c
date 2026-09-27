@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 void increment(int *num);
+void swapValues(int *a, int *b);
 
 int main() {
     int x = 10;
@@ -13,6 +14,11 @@ int main() {
 
     printf("Valor de x despres de la funcio: %d\n", x);
 
+    int y = 23;
+
+    swapValues(&x, &y);
+    printf("X = %d \nY = %d \n", x, y);
+
     return 0;
 }
 
@@ -20,4 +26,10 @@ void increment(int *num) {
     // 'num' conté l'adreça de x. 
     // Amb '*num' accedim a la variable original i li sumem 1.
     (*num)++; 
+}
+
+void swapValues(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
