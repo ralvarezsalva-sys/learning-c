@@ -35,10 +35,6 @@ int main() {
         printf("%d ", array[i]);
     }
     printf("\n");
-    
-
-    
-
     return 0;
 }
 
@@ -66,8 +62,8 @@ int getMax(int *arr, int size, int *maxResult) {
 
 void reverseArray(int *arr, int size) {
     for (int i = 0; i < size/2; i++) {
-        int temp = arr[i];
-        arr[i] = arr[size - 1 - i];
-        arr[size - 1 - i] = temp;
+        int temp = *(arr + i);
+        *(arr + i) = *(arr + size - 1 - i);
+        *(arr + size - 1 - i) = temp;
     }
 }
