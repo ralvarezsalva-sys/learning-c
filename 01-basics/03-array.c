@@ -4,24 +4,19 @@ that are false, so we know that because it repeats 2 times every single time*/
 #include <stdio.h>
 #define MAX_SIZE 10
 
+int askSize(int x);
 void askArray(int arr[], int sizeArray);
 int giveArray(int arrOne[], int arrTwo[], int sizeArray); 
 void printArray(int arr[], int sizeArray);
 
+
 int main() {
+    
+   
+
     int sizeUser = 0;
 
-    
-    while(1) {          
-        printf("Please, enter the number of integers that will contain the array (Maximum of 10): \n");
-        if (scanf("%d", &sizeUser) == 1 && sizeUser > 0 && sizeUser <= MAX_SIZE) {
-            while (getchar() != '\n');
-            break;
-        }        
-
-        printf("Not a real integer, please enter from 1 to 10 \n");
-        while (getchar() != '\n');
-    }
+    sizeUser = askSize(sizeUser);
 
     int originalArray[MAX_SIZE];
     int modifiedArray[MAX_SIZE];
@@ -36,6 +31,21 @@ int main() {
 
     return 0;
 }
+
+int askSize(int x) {
+    while(1) {          
+        printf("Please, enter the number of integers that will contain the array (Maximum of 10): \n");
+        if (scanf("%d", &x) == 1 && x > 0 && x <= MAX_SIZE) {
+            while (getchar() != '\n');
+            break;
+        }        
+
+        printf("Not a real integer, please enter from 1 to 10 \n");
+        while (getchar() != '\n');
+    }
+    return x;
+}
+
 
 void askArray(int arr[], int sizeArray) {
     
