@@ -6,7 +6,7 @@ void swapValues(int *a, int *b);
 int getMax(int *arr, int size, int *maxResult);
 void reverseArray(int *arr, int size);
 void getMinAndMax(int *arr, int size, int *minNum, int *maxNum);
-
+int* findNum(int *arr, int size, int number);
 
 int main() {
     int x = 10;
@@ -47,8 +47,18 @@ int main() {
 
     printf("Highest number of the second array: %d \nLowest number of the array: %d\n", maxNumArrTwo, minNumArrTwo);
 
+    int target = 9;
+    int *ptrResult;
 
+    ptrResult = findNum(arrayTwo, MAX_NUMS, target);
 
+    if (ptrResult != NULL) {
+        printf("I found the target %d in the array, it was stored in %p and it's in the position %d\n", target, (void*)ptrResult, ptrResult - arrayTwo + 1);
+    }
+
+    else {
+        printf("I didn't found the target \n");
+    }
 
 
     return 0;
@@ -99,3 +109,13 @@ void getMinAndMax(int *arr, int size, int *minNum, int *maxNum) {
         }
     }
 }
+
+int* findNum(int *arr, int size, int number) {
+    
+    for (int i = 0; i < size; i++) {
+        if (*(arr + i) == number) {
+            return (arr + i);
+        }
+    }
+    return NULL;
+}   
