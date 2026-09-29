@@ -10,6 +10,7 @@ void reverseArray(int *arr, int size);
 void getMinAndMax(int *arr, int size, int *minNum, int *maxNum);
 int* findNum(int *arr, int size, int number);
 int reverseString(char *str);
+bool isPalindrome(char *str);
 
 int main() {
     int x = 10;
@@ -65,14 +66,24 @@ int main() {
 
     char phrase[MAX_STRING] = "Hi everyone how are you?";
     
-    int sizeString = reverseString(phrase);
-
-    if (sizeString > 0) {
-        phrase[0] = toupper(phrase[0]);
-    }
-
+    reverseString(phrase);
     printf("%s", phrase);
     printf("\n");
+
+    char quote[MAX_STRING] = "Sugus";
+    char quoteTwo[MAX_STRING] = "Queen";
+
+    if (isPalindrome(quote)) {
+        printf("%s : Is palindrome \n", quote);
+        
+    }
+    
+
+    if (isPalindrome(quoteTwo)) {
+        printf("%s : Is palindrome\n", quoteTwo);
+
+    }
+   
     return 0;
 
 
@@ -133,16 +144,57 @@ int* findNum(int *arr, int size, int number) {
 }   
 
 int reverseString(char *str) {
+    char *start = str;
+    char *end = str;
     int size = 0;
-    for (int i = 0; str[i] != '\0'; i++) {
+
+    while (*end != '\0') {
+        end++;
         size++;
     }
 
-    for (int i = 0; i < size / 2; i++) {
-        char temp = str[i];
-        str[i] = str[size - i -1];
-        str[size - i - 1] = temp;
+    
+    end--;
+
+    if (size == 0) {
+        return 0;
+    }
+
+    while (end > start) {
+        char temp = *start;
+        *start = *end;
+        *end = temp;
+
+        end--;
+        start++;
     }
     return size;
+
+}
+
+bool isPalindrome(char *str) {
+    
+    bool palindrome = true;
+
+    char *start = str;
+    char *end = str;
+    int size = 0; 
+
+    while (*end != '\0') {
+        size++;
+        end++;
+    }
+    end--;
+
+    while (end > start) {
+        if (tolower(*start) != tolower(*end)) {
+            return false;
+        }
+        end--;
+        start++;
+    
+    }
+
+    return true;
 
 }
