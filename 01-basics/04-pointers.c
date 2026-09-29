@@ -1,5 +1,7 @@
 #define MAX_NUMS 5
+#define MAX_STRING 50
 #include <stdio.h>
+#include <ctype.h>
 
 void increment(int *num);
 void swapValues(int *a, int *b);
@@ -7,6 +9,7 @@ int getMax(int *arr, int size, int *maxResult);
 void reverseArray(int *arr, int size);
 void getMinAndMax(int *arr, int size, int *minNum, int *maxNum);
 int* findNum(int *arr, int size, int number);
+int reverseString(char *str);
 
 int main() {
     int x = 10;
@@ -53,14 +56,23 @@ int main() {
     ptrResult = findNum(arrayTwo, MAX_NUMS, target);
 
     if (ptrResult != NULL) {
-        printf("I found the target %d in the array, it was stored in %p and it's in the position %d\n", target, (void*)ptrResult, ptrResult - arrayTwo + 1);
+        printf("I found the target %d in the array, it was stored in %p and it's in the position %ld\n", target, (void*)ptrResult, ptrResult - arrayTwo + 1);
     }
 
     else {
         printf("I didn't found the target \n");
     }
 
+    char phrase[MAX_STRING] = "Hi everyone how are you?";
+    
+    int sizeString = reverseString(phrase);
 
+    if (sizeString > 0) {
+        phrase[0] = toupper(phrase[0]);
+    }
+
+    printf("%s", phrase);
+    printf("\n");
     return 0;
 
 
@@ -119,3 +131,18 @@ int* findNum(int *arr, int size, int number) {
     }
     return NULL;
 }   
+
+int reverseString(char *str) {
+    int size = 0;
+    for (int i = 0; str[i] != '\0'; i++) {
+        size++;
+    }
+
+    for (int i = 0; i < size / 2; i++) {
+        char temp = str[i];
+        str[i] = str[size - i -1];
+        str[size - i - 1] = temp;
+    }
+    return size;
+
+}
