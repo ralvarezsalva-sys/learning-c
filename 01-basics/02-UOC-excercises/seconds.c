@@ -16,31 +16,30 @@ Description: PAC1
 /*Main function*/
 int main() {
     /*Defining the variables*/
-    int userSeconds, operationSeconds, days, hours, minutes;
+    int userSeconds, operationSeconds, days, hours, minutes, seconds;
     days = 0;
     hours = 0; 
     minutes = 0;
+    seconds = 0;
     
     
 
     /*Asking the user how many seconds*/
     printf("Please, enter how many seconds you want to convert them into days, hours, and minutes \n");
     scanf("%d", &userSeconds);
-    operationSeconds = userSeconds;
+    
 
     /*Operations*/
-    days = operationSeconds / DAYS_TO_SECONDS;
-    operationSeconds = operationSeconds % DAYS_TO_SECONDS;
-    hours = operationSeconds / HOURS_TO_SECONDS;
-    operationSeconds = operationSeconds % HOURS_TO_SECONDS;
-    minutes = operationSeconds / MINUTES_TO_SECONDS;
-    operationSeconds = operationSeconds % MINUTES_TO_SECONDS;
+    days = userSeconds / DAYS_TO_SECONDS;
+    hours = (userSeconds % DAYS_TO_SECONDS) / HOURS_TO_SECONDS;
+    minutes = (userSeconds % HOURS_TO_SECONDS) / MINUTES_TO_SECONDS;
+    seconds = userSeconds % MINUTES_TO_SECONDS;
 
     /*OUTPUT*/
 
     printf("----OUTPUT----\n\n");
     printf("%d seconds are equal to: \n", userSeconds);
-    printf("Days: %d \nHours: %d \nMinutes: %d \nSeconds: %d \n", days, hours, minutes, operationSeconds);
+    printf("Days: %d \nHours: %d \nMinutes: %d \nSeconds: %d \n", days, hours, minutes, seconds);
 
     return 0;
 
