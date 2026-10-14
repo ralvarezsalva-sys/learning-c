@@ -16,7 +16,7 @@ Description: PAC1
 /*Main function*/
 int main() {
     /*Defining the variables*/
-    int userSeconds, operationSeconds, days, hours, minutes, seconds;
+    int userSeconds, days, hours, minutes, seconds;
     days = 0;
     hours = 0; 
     minutes = 0;

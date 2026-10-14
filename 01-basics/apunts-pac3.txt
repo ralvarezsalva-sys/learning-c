@@ -1,0 +1,20 @@
+Llegir dades d'un fitxer i escriure-ho a un altre és una mica més 
+tediós que fer-ho desde entrada i sortida, pero ens pot portar molts
+més beneficis per exemple si hem de llegir moltes més dades o 
+tenim les dades ja guardades a un altre fitxer arrel d'un altre 
+programa que ja hem creat.
+ - Obrim fitxer, nou o existent (llegir o desar dades)
+ - Llegim o escrivim les dades
+ - Tanquem el fitxer
+
+Ens hem d'assegurar que mentre llegim el fitxer no l'hem d'editar, el 
+bloquejem temporalment
+
+Per tractar un fitxer hem de fer:
+FILE* fileToRead;
+fileToRead = fopen("file.txt", "r")
+fclose(fileToRead)
+
+Podem posar "r" per llegir; "w" per sobreescriure; "a" per afegir-hi 
+
+
